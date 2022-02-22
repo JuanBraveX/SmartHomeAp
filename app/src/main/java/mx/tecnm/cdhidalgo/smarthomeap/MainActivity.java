@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -57,9 +58,8 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(MainActivity.this, "Error de inicio de sesion", Toast.LENGTH_SHORT).show();
             }
-
         });
-
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(peticion);
     }
 
     private void respuesta(JSONObject response) {
