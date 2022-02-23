@@ -63,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void respuesta(JSONObject response) {
-        Toast.makeText(this, "servidor contesto", Toast.LENGTH_SHORT).show();
+        try {
+            Toast.makeText(this, "servidor contesto " + response.getString("login") +" "+ response.getString("token"), Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+
+        }
     }
 
 }
