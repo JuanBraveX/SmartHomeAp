@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartHomeAp/app/src/main/res/drawable/item_lista_borde.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SmartHomeAp/app/src/main/res/layout/activity_main.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartHomeAp/app/src/main/res/layout/activity_main2.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartHomeAp/app/src/main/res/layout/listar_sensores.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_lista_borde">
+
+    <TextView
+        android:id="@+id/tvTipo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="T"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvValor"
+        app:layout_constraintStart_toEndOf="@+id/tvUser"
+        app:layout_constraintTop_toBottomOf="@+id/stSensor" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvTipo"
+        app:layout_constraintStart_toEndOf="@+id/tvId"
+        app:layout_constraintTop_toBottomOf="@+id/stUser" />
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stId" />
+
+    <TextView
+        android:id="@+id/tvValor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="80°"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvFecha"
+        app:layout_constraintStart_toEndOf="@+id/tvTipo"
+        app:layout_constraintTop_toBottomOf="@+id/stValor" />
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="25/02/2022"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvValor"
+        app:layout_constraintTop_toBottomOf="@+id/stFecha" />
+
+    <TextView
+        android:id="@+id/stFecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvFecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvValor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stValor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Valor"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvValor"
+        app:layout_constraintEnd_toStartOf="@+id/tvFecha"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvTipo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:text="id"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvId"
+        app:layout_constraintEnd_toStartOf="@+id/tvUser"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvUser"
+        app:layout_constraintEnd_toStartOf="@+id/tvTipo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvId"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stSensor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sensor"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvTipo"
+        app:layout_constraintEnd_toStartOf="@+id/tvValor"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvUser"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="110dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

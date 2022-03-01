@@ -2,6 +2,7 @@ package mx.tecnm.cdhidalgo.smarthomeap;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,7 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void respuesta(JSONObject response) {
         try {
-            Toast.makeText(this, "servidor contesto " + response.getString("login") +" "+ response.getString("token"), Toast.LENGTH_SHORT).show();
+            if(response.getString("login").compareTo("y")==0){
+                String jwt = response.getString("token");
+                SharedPreferences.Editor editor = sesion.edit();
+                editor.putString("user",etUser.getText().toString());
+                editor.putString("token", jwt);
+                editor.commit();
+                startActivity(new Intent(this, MainActivity2.class));
+            }else {
+                Toast.makeText(this, "Error de ususraio", Toast.LENGTH_SHORT);
+            }
         }catch (Exception e){
 
         }
