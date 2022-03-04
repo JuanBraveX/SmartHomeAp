@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void respuesta(JSONObject response) {
         try {
-            if(response.getString("login").compareTo("y")==0){
+            if(response.getString("login").compareTo("Y")==0){
                 String jwt = response.getString("token");
                 SharedPreferences.Editor editor = sesion.edit();
                 editor.putString("user",etUser.getText().toString());
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
                 startActivity(new Intent(this, MainActivity2.class));
             }else {
-                Toast.makeText(this, "Error de ususraio", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Error de ususraio", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
 

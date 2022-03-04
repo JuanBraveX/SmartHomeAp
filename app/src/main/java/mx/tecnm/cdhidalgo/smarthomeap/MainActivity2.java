@@ -8,23 +8,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity2 extends AppCompatActivity {
     EditText etTipo, etValor;
     Button bAdd, bRefresh;
     RecyclerView rvMsg;
     SharedPreferences sesion;
+    String lista[][];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +66,79 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void agregar() {
+        String url = Uri.parse(Config.URL + "registro.php").buildUpon().build().toString();
+        StringRequest peticion = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        agregarRespuesta(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity2.this, "Error de conexion", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> header = new HashMap<>();
+                header.put("Authorization", sesion.getString("token", "Error"));
+                return header;
+            }
+            @Override
+            public Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("tipo", etTipo.getText().toString());
+                params.put("valor", etValor.getText().toString());
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(peticion);
 
+    }
+
+    private void agregarRespuesta(String response) {
     }
 
     private void llenar() {
-        String url = Uri.parse(Config.URL + "registro.php")
-                .buildUpon().build().toString();
-        JsonObjectRequest peticion = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
+        String url = Uri.parse(Config.URL + "registro.php").buildUpon().build().toString();
+        JsonArrayRequest peticion = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        llenaRepuesta();
+                    public void onResponse(JSONArray response) {
+                        llenarRespuesta(response);
                     }
                 }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity2.this, "Error de conexion",Toast.LENGTH_SHORT).show();
-                    }
-                });
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity2.this, "Error de conexion", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> header = new HashMap<>();
+                header.put("Authorization", sesion.getString("token", "Error"));
+                return header;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(peticion);
+
     }
 
-    private void llenaRepuesta() {
-
+    private void llenarRespuesta(JSONArray response) {
+        try {
+            Log.d("DEPUERAR", "llenarRespuesta: si reponde"+ response.toString() );
+            lista =  new String[response.length()][5];
+            for (int i=0; i< response.length(); i++){
+                lista[i][0] = response.getJSONObject(i).getString("id");
+                lista[i][1] = response.getJSONObject(i).getString("user");
+                lista[i][2] = response.getJSONObject(i).getString("sensor");
+                lista[i][3] = response.getJSONObject(i).getString("valor");
+                lista[i][4] = response.getJSONObject(i).getString("fecha");
+            }
+            Log.d("DEPURAR", lista.toString());
+            rvMsg.setAdapter(new MyAdapter(lista));
+            Toast.makeText(this, "lista Actualizada", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){ ; }
     }
 }
