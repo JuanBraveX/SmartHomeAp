@@ -8,54 +8,56 @@
 
     <TextView
         android:id="@+id/tvTipo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="67dp"
+        android:layout_height="23dp"
         android:text="T"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUser"
         app:layout_constraintEnd_toStartOf="@+id/tvValor"
-        app:layout_constraintStart_toEndOf="@+id/tvUser"
-        app:layout_constraintTop_toBottomOf="@+id/stSensor" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvUser" />
 
     <TextView
         android:id="@+id/tvUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="23dp"
         android:text="admin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvId"
         app:layout_constraintEnd_toStartOf="@+id/tvTipo"
-        app:layout_constraintStart_toEndOf="@+id/tvId"
-        app:layout_constraintTop_toBottomOf="@+id/stUser" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvId" />
 
     <TextView
         android:id="@+id/tvId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:layout_width="58dp"
+        android:layout_height="23dp"
+        android:paddingStart="15dp"
         android:text="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvUser"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stId" />
 
     <TextView
         android:id="@+id/tvValor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
         android:text="80°"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTipo"
         app:layout_constraintEnd_toStartOf="@+id/tvFecha"
-        app:layout_constraintStart_toEndOf="@+id/tvTipo"
-        app:layout_constraintTop_toBottomOf="@+id/stValor" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvTipo" />
 
     <TextView
         android:id="@+id/tvFecha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="23dp"
         android:text="25/02/2022"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvValor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvValor"
-        app:layout_constraintTop_toBottomOf="@+id/stFecha" />
+        app:layout_constraintEnd_toStartOf="@+id/ivDelete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvValor" />
 
     <TextView
         android:id="@+id/stFecha"
@@ -63,11 +65,11 @@
         android:layout_height="wrap_content"
         android:text="Fecha"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvFecha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/ivEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvValor"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/stValor" />
 
     <TextView
         android:id="@+id/stValor"
@@ -75,22 +77,21 @@
         android:layout_height="wrap_content"
         android:text="Valor"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvValor"
-        app:layout_constraintEnd_toStartOf="@+id/tvFecha"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/stFecha"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvTipo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/stSensor" />
 
     <TextView
         android:id="@+id/stId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="5dp"
+        android:paddingStart="15dp"
         android:text="id"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvId"
-        app:layout_constraintEnd_toStartOf="@+id/tvUser"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/stUser"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,11 +101,10 @@
         android:layout_height="wrap_content"
         android:text="Usuario"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvUser"
-        app:layout_constraintEnd_toStartOf="@+id/tvTipo"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/stSensor"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvId"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/stId" />
 
     <TextView
         android:id="@+id/stSensor"
@@ -112,38 +112,29 @@
         android:layout_height="wrap_content"
         android:text="Sensor"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvTipo"
-        app:layout_constraintEnd_toStartOf="@+id/tvValor"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/stValor"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvUser"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/stUser" />
 
     <ImageView
         android:id="@+id/ivEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivDelete"
-        app:layout_constraintEnd_toEndOf="@+id/ivDelete"
-        app:layout_constraintEnd_toStartOf="@+id/ivDelete"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="@+id/ivDelete"
+        app:layout_constraintBottom_toTopOf="@+id/ivDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stFecha"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageView
         android:id="@+id/ivDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="164dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivEdit"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipo"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvFecha"
+        app:layout_constraintTop_toBottomOf="@+id/ivEdit"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
